@@ -12,12 +12,19 @@
 
 ## Installation
 
-```git clone https://github.com/Clobiverse/af.git && cd af && chmod +x af && sudo mv af /usr/local/bin/```
-
+```bash
+git clone https://github.com/Clobiverse/af.git && cd af && chmod +x af && sudo mv af /usr/local/bin/```
 
 ## Usage
 
 To use `af`, simply call it with a command and any necessary options:
 
+## Commands
+
+## Contributing
+
+## License
+
 ```bash
 af <command> [options]
+```
