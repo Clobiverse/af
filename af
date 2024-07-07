@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# af - A tool to streamline repetitive tasks
+
+# Function to print usage information
+usage() {
+    echo "Usage: af <command> [options]"
+    echo ""
+    echo "Available commands:"
+
+    # Dynamically extract command names and descriptions from the script itself
+    grep -E '^# (COMMAND_[A-Z_]+): ' "$0" | while IFS= read -r line; do
+        command=$(echo "$line" | sed -E 's/^# (COMMAND_[A-Z_]+): (.*)$/\1/')
+        description=$(echo "$line" | sed -E 's/^# (COMMAND_[A-Z_]+): (.*)$/\2/')
+        echo "  ${command,,}    $description"  # Convert command name to lowercase
+    done
+
+    echo "  help          Display this help message"
+    echo ""
+}
+
+# Define commands with descriptions in comments
+
+# COMMAND_EXAMPLE: An example command, this is where you write your command descriptor
+command_example() {
+    echo "Executing example command with parameters: $@"
+}
+
+# Check if at least one argument is passed
+if [ $# -lt 1 ]; then
+    usage
+    exit 1
+fi
+
+# Get the command
+COMMAND=$1
+shift
+
+# Execute the appropriate command
+case $COMMAND in
+    example)
+        command_example "$@"
+        ;;
+    help)
+        usage
+        ;;
+    *)
+        echo "Error: Unknown command '$COMMAND'"
+        usage
+        exit 1
+        ;;
+esac
