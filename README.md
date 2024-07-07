@@ -13,7 +13,8 @@
 ## Installation
 
 ```bash
-git clone https://github.com/Clobiverse/af.git && cd af && chmod +x af && sudo mv af /usr/local/bin/```
+git clone https://github.com/Clobiverse/af.git && cd af && chmod +x af && sudo mv af /usr/local/bin/
+```
 
 ## Usage
 
